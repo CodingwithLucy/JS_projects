@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <script defer src="index.js"></script>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div>
+        <input onchange="firstCheck()" id="firstNumber" type="text" style="font-size: large;" />
+        <label id="mark" style="font-size: large;"> &nbsp;</label>
+        <input onchange="secondCheck()" id="secondNumber" type="text" style="font-size: large;" />
+        <label id="equal" style="font-size: large;">=</label>
+        <label id="score" style="font-size: large;"></label>
+    </div>
+    <div style="margin-top:10px;">
+        <button onclick="addition()" style="margin-right: 10px;">+</button>
+        <button onclick="subtraction()" id="subtraction" style="margin-right: 10px;">-</button>
+        <button onclick="multiplication()" id="multiplication" style="margin-right: 10px;">*</button>
+        <button onclick="division()" id="division" style="margin-right: 10px;">/</button>
+        <button onclick="exponentiation()" id="exponentiation">x^</button>
+    </div>
+    <p id="notification" style="color:red; font-style:italic; font-size: larger;"></p>
+</body>
+
+</html>
