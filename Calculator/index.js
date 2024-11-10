@@ -1,6 +1,6 @@
 let score = document.getElementById("score");
 let mark = document.getElementById("mark");
-let notification = document.getElementById("notification");
+let result = document.getElementById("result");
 let firstNumber = document.getElementById("firstNumber");
 let secondNumber = document.getElementById("secondNumber");
 
@@ -11,27 +11,12 @@ function getNumbers() {
   };
 }
 
-/*
-firstNumber.addEventListener("change", firstCheck);
-secondNumber.addEventListener("change", secondCheck);
-
-document.getElementById("addition").addEventListener("click", addition);
-document.getElementById("subtraction").addEventListener("click", subtraction);
-document
-  .getElementById("multiplication")
-  .addEventListener("click", multiplication);
-document.getElementById("division").addEventListener("click", division);
-document
-  .getElementById("exponentiation")
-  .addEventListener("click", exponentiation);
-*/
-
 function checkNumber(input, name) {
   if (isNaN(parseInt(input.value))) {
-    notification.textContent = "Only numbers please !!";
+    result.textContent = "Only numbers please !!";
     input.value = "";
   } else {
-    notification.textContent = "";
+    result.textContent = "";
   }
 }
 
@@ -40,7 +25,7 @@ function firstCheck() {
 }
 
 function secondCheck() {
-  checkNumber(firstNumber, "secondNumber");
+  checkNumber(secondNumber, "secondNumber");
 }
 
 function addition() {
@@ -50,7 +35,7 @@ function addition() {
     score.textContent = first + second;
     mark.textContent = "+";
   } else {
-    notification.textContent = "Put some numbers, please!";
+    result.textContent = "Put some numbers, please!";
   }
 }
 
@@ -61,7 +46,7 @@ function subtraction() {
     score.textContent = first - second;
     mark.textContent = "-";
   } else {
-    notification.textContent = "Put some numbers, please!";
+    result.textContent = "Put some numbers, please!";
   }
 }
 
@@ -72,7 +57,7 @@ function multiplication() {
     score.textContent = first * second;
     mark.textContent = "*";
   } else {
-    notification.textContent = "Put some numbers, please!";
+    result.textContent = "Put some numbers, please!";
   }
 }
 
@@ -84,10 +69,10 @@ function division() {
       score.textContent = first / second;
       mark.textContent = "/";
     } else {
-      notification.textContent = "Cannot divide by zero!";
+      result.textContent = "Cannot divide by zero!";
     }
   } else {
-    notification.textContent = "Put some numbers, please!";
+    result.textContent = "Put some numbers, please!";
   }
 }
 
@@ -108,6 +93,32 @@ function exponentiation() {
     score.textContent = result;
     mark.textContent = "^";
   } else {
-    notification.textContent = "Put some numbers, please!";
+    result.textContent = "Put some numbers, please!";
+  }
+}
+
+function calculateDistance() {
+  let lat1 = parseFloat(document.getElementById("lat1").value);
+  let lon1 = parseFloat(document.getElementById("lon1").value);
+  let lat2 = parseFloat(document.getElementById("lat2").value);
+  let lon2 = parseFloat(document.getElementById("lon2").value);
+  if (!isNaN(lat1) && !isNaN(lon1) && !isNaN(lat2) && !isNaN(lon2)) {
+    const toRadians = (degree) => degree * (Math.PI / 180);
+    const R = 3440.065;
+    const dLat = toRadians(lat2 - lat1);
+    const dLon = toRadians(lon1 - lon2);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRadians(lat1)) *
+        Math.cos(toRadians(lat2)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c;
+    document.getElementById(
+      "distance"
+    ).textContent = `Distance in nautical miles: ${distance.toFixed(2)}`;
+  } else {
+    result.textContent = "Provide the correct coordinates, please!";
   }
 }

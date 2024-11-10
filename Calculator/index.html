@@ -9,9 +9,11 @@
 
 <body>
     <div>
-        <input onchange="firstCheck()" id="firstNumber" type="text" style="font-size: large;" />
+        <h3>CALCULATOR</h3>
+        <input onchange="firstCheck()" id="firstNumber" type="text" placeholder="Number 1" style="font-size: large;" />
         <label id="mark" style="font-size: large;"> &nbsp;</label>
-        <input onchange="secondCheck()" id="secondNumber" type="text" style="font-size: large;" />
+        <input onchange="secondCheck()" id="secondNumber" type="text" placeholder="Number 2"
+            style="font-size: large;" />
         <label id="equal" style="font-size: large;">=</label>
         <label id="score" style="font-size: large;"></label>
     </div>
@@ -22,7 +24,17 @@
         <button onclick="division()" id="division" style="margin-right: 10px;">/</button>
         <button onclick="exponentiation()" id="exponentiation">x^</button>
     </div>
-    <p id="notification" style="color:red; font-style:italic; font-size: larger;"></p>
+    <p id="result" style="color:red; font-style:italic; font-size: larger;"></p>
+
+    <div style="margin-top: 20px;">
+        <h3>GEOGRAPHICAL DISTANCE</h3>
+        <input id="lat1" type="text" placeholder="Latitude 1" style="font-size: large; margin-right: 10px;" />
+        <input id="lon1" type="text" placeholder="Longitude 1" style="font-size: large; margin-right: 10px;" />
+        <input id="lat2" type="text" placeholder="Latitude 2" style="font-size: large; margin-right: 10px;" />
+        <input id="lon2" type="text" placeholder="Longitude 2" style="font-size: large; margin-right: 10px;" />
+        <button onclick="calculateDistance()" id="calculateDistance" style="margin-right: 10px;">Calculate
+            Distance</button> <label id="distance" style="font-size: large;"></label>
+    </div>
 </body>
 
 </html>
